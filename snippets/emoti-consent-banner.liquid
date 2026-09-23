@@ -1,0 +1,20 @@
+{%- comment -%}
+  Discrete cookie banner. Accept/Reject only — no dark patterns, no
+  pre-ticked choice. js/emoti-consent.js stores the decision in
+  localStorage and only THEN (and only on Accept) loads the Meta Pixel,
+  using settings.meta_pixel_id (blank by default — see Theme settings →
+  Tracking & consent).
+
+  This is a minimal, honest CMP. If you later install a dedicated consent
+  platform (e.g. one of the Shopify App Store CMPs, or Cookiebot), replace
+  this snippet's markup/logic with that tool's embed and keep
+  window.EMOTI_CONSENT as the single source of truth the Pixel loader
+  reads — the rest of assets/emoti-consent.js does not need to change.
+{%- endcomment -%}
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie preferences" hidden>
+  <p>{{ 'emoti.cookie.text' | t }}</p>
+  <div class="cookie-banner__actions">
+    <button type="button" id="cookie-reject">{{ 'emoti.cookie.reject' | t }}</button>
+    <button type="button" id="cookie-accept">{{ 'emoti.cookie.accept' | t }}</button>
+  </div>
+</div>

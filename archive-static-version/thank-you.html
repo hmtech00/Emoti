@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMOTI — You're on the list · Drop 01</title>
+<meta name="description" content="You're on the EMOTI Drop 01 waitlist. Bring 3 friends for first early access.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">EMOTI</a>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-lang-toggle="it" aria-pressed="false">IT</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang-toggle="en" aria-pressed="true">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="ty-hero">
+    <div class="container" style="padding:0">
+      <p class="eyebrow" data-i18n="ty_eyebrow">DROP 01 · 11.10 · 20:00</p>
+      <h1 data-i18n="ty_title">You're on the list.</h1>
+      <p data-i18n="ty_sub">On Saturday 10.10 at 20:00 you'll get the private link, 24 hours before everyone else. Check your email to confirm your sign-up.</p>
+    </div>
+  </section>
+
+  <p class="demo-notice" data-referral="demo-notice" hidden>
+    Demo data — you opened this page directly. Sign up on the
+    <a href="index.html" style="color:inherit">home page</a> to see your own referral link here.
+  </p>
+
+  <section class="referral-card" aria-labelledby="referral-heading">
+    <h2 id="referral-heading" data-i18n="ty_referral_title">Bring 3 friends, join the first group</h2>
+    <p data-i18n="ty_referral_desc">Whoever brings 3 friends to the list gets the link first, before sizes run out.</p>
+
+    <div class="referral-count">
+      <span data-i18n="ty_referral_count_label">Your friends on the list</span>
+      <span data-referral="count">0 / 3</span>
+    </div>
+    <div class="referral-bar" data-referral="bar"><span></span></div>
+
+    <div class="referral-link-row">
+      <label for="referral-link" data-i18n="ty_referral_link_label">Your personal link</label>
+      <div class="referral-link-field">
+        <input type="text" id="referral-link" data-referral="link-input" readonly>
+        <button type="button" data-referral="copy" data-i18n="ty_copy">Copy link</button>
+      </div>
+    </div>
+
+    <div class="referral-share-row">
+      <a href="#" data-referral="whatsapp" target="_blank" rel="noopener" data-i18n="ty_whatsapp_share">Send on WhatsApp</a>
+      <button type="button" data-referral="share" data-i18n="ty_share" hidden>Share</button>
+    </div>
+  </section>
+
+  <section class="next-steps" aria-labelledby="next-steps-heading">
+    <h2 id="next-steps-heading" data-i18n="ty_next_steps">Next steps</h2>
+
+    <div class="next-step">
+      <span class="next-step__num">01</span>
+      <div>
+        <h3 data-i18n="ty_step1_title">Confirm your email</h3>
+        <p data-i18n="ty_step1_desc">Without confirmation we can't send you the link.</p>
+      </div>
+    </div>
+
+    <div class="next-step">
+      <span class="next-step__num">02</span>
+      <div>
+        <h3 data-i18n="ty_step2_title">Save our WhatsApp number</h3>
+        <p data-i18n="ty_step2_desc">The link only reaches people who saved the number.</p>
+        <a class="btn-outline" href="#" data-action="save-whatsapp" data-i18n="ty_step2_cta">Save EMOTI contact</a>
+      </div>
+    </div>
+
+    <div class="next-step">
+      <span class="next-step__num">03</span>
+      <div>
+        <h3 data-i18n="ty_step3_title">Follow @Emotitii</h3>
+        <p data-i18n="ty_step3_desc">From 5.10 we reveal one piece a day.</p>
+        <a class="btn-outline" href="#" data-action="open-instagram" target="_blank" rel="noopener" data-i18n="ty_step3_cta">Open Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ty-brand-line">
+    <div class="container" style="padding:0">
+      <h2 data-i18n="brand_line_title">No Limitations</h2>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html">EMOTI</a>
+    <ul class="site-footer__links">
+      <li><a id="footer-instagram" href="#" target="_blank" rel="noopener">Instagram @Emotitii</a></li>
+      <li><a id="footer-facebook" href="#" target="_blank" rel="noopener">Facebook EMOTI</a></li>
+    </ul>
+    <ul class="site-footer__legal">
+      <li><a id="footer-privacy" href="#" data-i18n="footer_privacy">Privacy</a></li>
+      <li><a id="footer-cookies" href="#" data-i18n="footer_cookies">Cookies</a></li>
+      <li><a id="footer-returns" href="#" data-i18n="footer_returns">Returns and shipping</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie preferences" hidden>
+  <p data-i18n="cookie_text">We use cookies to run this page and, once you agree, to measure the Instagram campaign that brought you here.</p>
+  <div class="cookie-banner__actions">
+    <button type="button" id="cookie-reject" data-i18n="cookie_reject">Reject</button>
+    <button type="button" id="cookie-accept" data-i18n="cookie_accept">Accept</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var cfg = window.EMOTI_CONFIG;
+    if (!cfg) return;
+    document.getElementById('footer-instagram').href = cfg.INSTAGRAM_URL;
+    document.getElementById('footer-facebook').href = cfg.FACEBOOK_URL;
+    document.getElementById('footer-privacy').href = cfg.PRIVACY_URL;
+    document.getElementById('footer-cookies').href = cfg.COOKIES_URL;
+    document.getElementById('footer-returns').href = cfg.RETURNS_URL;
+  });
+</script>
+
+<script src="js/config.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/consent.js" defer></script>
+<script src="js/referral.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

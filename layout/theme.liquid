@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if page_title contains 'EMOTI' -%}
+    <title>{{ page_title }}</title>
+  {%- else -%}
+    <title>{{ page_title }}{% if page_title != shop.name %} · {{ shop.name }}{% endif %}</title>
+  {%- endif -%}
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- else -%}
+    <meta name="description" content="EMOTI Drop 01 — No Limitations. Few pieces, no restock. Join the waitlist for 24-hour early access.">
+  {%- endif -%}
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title | default: 'EMOTI — No Limitations · Drop 01' }}">
+  <meta property="og:description" content="{{ page_description | default: 'Few pieces. No restock. Join the list for 24-hour early access.' | escape }}">
+  <meta property="og:type" content="website">
+  {%- assign og_image = page_image | default: settings.og_image -%}
+  {%- if og_image -%}
+    <meta property="og:image" content="https:{{ og_image | image_url: width: 1200 }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {{ 'emoti.css' | asset_url | stylesheet_tag }}
+
+  {%- comment -%}
+    emoti.css is a plain, static asset (not Liquid-processed), so the
+    editable values from Theme settings → Colors are bridged in here
+    instead, overriding the CSS file's :root defaults. This is the same
+    pattern Shopify's own reference themes use for settings-driven color.
+  {%- endcomment -%}
+  <style id="emoti-color-overrides">
+    :root{
+      --bg: {{ settings.color_bg }};
+      --ink-on-bg: {{ settings.color_ink_on_bg }};
+      --ink: {{ settings.color_ink }};
+      --ink-2: {{ settings.color_ink_2 }};
+      --text: {{ settings.color_text }};
+      --muted-on-ink: {{ settings.color_muted }};
+      --red: {{ settings.color_red }};
+      --red-dark: {{ settings.color_red_dark }};
+    }
+  </style>
+
+  {{ content_for_header }}
+</head>
+
+<body class="template-{{ request.page_type }}">
+
+  <a class="skip-link" href="#MainContent">{{ 'emoti.header.skip_to_form' | t }}</a>
+
+  {%- section 'emoti-header' -%}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {%- section 'emoti-footer' -%}
+
+  {%- render 'emoti-consent-banner' -%}
+
+  <!-- Bridge from Liquid theme settings to the vanilla-JS components.
+       Nothing sensitive lives here — only the values the JS needs to run
+       the countdown, gate the Meta Pixel and build the WhatsApp/Instagram
+       links. See assets/emoti-*.js. -->
+  {%- assign early_date = settings.early_access_datetime | date: '%d.%m' -%}
+  {%- assign early_time = settings.early_access_datetime | date: '%H:%M' -%}
+  {%- assign public_date = settings.public_drop_datetime | date: '%d.%m' -%}
+  {%- assign public_time = settings.public_drop_datetime | date: '%H:%M' -%}
+  <script>
+    window.EMOTI = {
+      earlyAccessDate: {{ settings.early_access_datetime | json }},
+      publicDropDate: {{ settings.public_drop_datetime | json }},
+      metaPixelId: {{ settings.meta_pixel_id | json }},
+      whatsappNumber: {{ settings.whatsapp_number | json }},
+      instagramUrl: {{ settings.instagram_url | json }},
+      locale: {{ request.locale.iso_code | json }},
+      strings: {
+        days: {{ 'emoti.countdown.days' | t | json }},
+        hours: {{ 'emoti.countdown.hours' | t | json }},
+        minutes: {{ 'emoti.countdown.minutes' | t | json }},
+        captionBeforeEarly: {{ 'emoti.countdown.caption_before_early' | t: early_date: early_date, early_time: early_time | json }},
+        captionBeforePublic: {{ 'emoti.countdown.caption_before_public' | t: public_date: public_date, public_time: public_time | json }},
+        liveEarly: {{ 'emoti.countdown.live_early' | t | json }},
+        livePublic: {{ 'emoti.countdown.live_public' | t | json }},
+        errorEmailRequired: {{ 'emoti.form.error_email_required' | t | json }},
+        errorEmailInvalid: {{ 'emoti.form.error_email_invalid' | t | json }},
+        errorCountryRequired: {{ 'emoti.form.error_country_required' | t | json }},
+        errorSummary: {{ 'emoti.form.error_summary' | t | json }},
+        submitting: {{ 'emoti.form.submitting' | t | json }},
+        copy: {{ 'emoti.thank_you.copy' | t | json }},
+        copied: {{ 'emoti.thank_you.copied' | t | json }}
+      }
+    };
+  </script>
+
+  <script src="{{ 'emoti-consent.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-countdown.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-collection.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-faq.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-form.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-referral.js' | asset_url }}" defer></script>
+  <script src="{{ 'emoti-main.js' | asset_url }}" defer></script>
+</body>
+</html>

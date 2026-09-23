@@ -1,0 +1,60 @@
+{%- comment -%}
+  Referral card. This is a MOCK layer — see assets/emoti-referral.js.
+  There is no real waitlist/referral tool connected. It reads a record
+  that assets/emoti-form.js saved to localStorage right after the native
+  Shopify sign-up succeeded, and renders a clearly labelled demo state if
+  none exists (e.g. someone opened this page directly).
+
+  To connect a real tool (Viral Loops, KickoffLabs, or similar): that
+  service normally gives you either an embeddable widget or an API that
+  returns { referralCode, referralUrl, friendsCount } for the signed-up
+  visitor. Swap emoti-referral.js's `getSignupRecord()` for that call —
+  this markup and the copy/share/WhatsApp buttons don't need to change.
+{%- endcomment -%}
+{%- liquid
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'emoti.thank_you.referral_title' | t
+  endif
+-%}
+<p class="demo-notice" data-referral="demo-notice" hidden>
+  {{ 'emoti.thank_you.demo_notice' | t }}
+</p>
+
+<section class="referral-card" aria-labelledby="referral-heading">
+  <h2 id="referral-heading">{{ title }}</h2>
+  <p>{{ 'emoti.thank_you.referral_desc' | t }}</p>
+
+  <div class="referral-count">
+    <span>{{ 'emoti.thank_you.referral_count_label' | t }}</span>
+    <span data-referral="count">0 / 3</span>
+  </div>
+  <div class="referral-bar" data-referral="bar"><span></span></div>
+
+  <div class="referral-link-row">
+    <label for="referral-link">{{ 'emoti.thank_you.referral_link_label' | t }}</label>
+    <div class="referral-link-field">
+      <input type="text" id="referral-link" data-referral="link-input" readonly>
+      <button type="button" data-referral="copy">{{ 'emoti.thank_you.copy' | t }}</button>
+    </div>
+  </div>
+
+  <div class="referral-share-row">
+    <a href="#" data-referral="whatsapp" target="_blank" rel="noopener">{{ 'emoti.thank_you.whatsapp_share' | t }}</a>
+    <button type="button" data-referral="share" hidden>{{ 'emoti.thank_you.share' | t }}</button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Referral",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title override",
+      "info": "Leave blank to use the translated default."
+    }
+  ]
+}
+{% endschema %}

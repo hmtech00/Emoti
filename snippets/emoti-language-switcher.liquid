@@ -1,0 +1,30 @@
+{%- comment -%}
+  Real Shopify Markets language switcher. Submits the native `localization`
+  form, which re-renders the whole page server-side in the chosen language
+  (reading locales/*.json) — this is not a client-side text swap.
+
+  Until a second language is published under Settings → Languages, only one
+  button shows and it's inert — that's honest: there's nothing to switch to
+  yet, rather than a fake toggle that doesn't actually translate anything.
+{%- endcomment -%}
+{%- if localization.available_languages.size > 1 -%}
+  {%- form 'localization', id: 'EmotiLangForm' -%}
+    <div class="lang-switch">
+      <input type="hidden" name="return_to" value="{{ request.path }}">
+      {%- for language in localization.available_languages -%}
+        <button
+          type="submit"
+          name="locale_code"
+          value="{{ language.iso_code }}"
+          aria-pressed="{% if language.iso_code == localization.language.iso_code %}true{% else %}false{% endif %}"
+          {% if language.iso_code == localization.language.iso_code %}class="is-active"{% endif %}
+        >{{ language.iso_code | upcase }}</button>
+        {%- unless forloop.last %}<span aria-hidden="true">/</span>{% endunless -%}
+      {%- endfor -%}
+    </div>
+  {%- endform -%}
+{%- else -%}
+  <div class="lang-switch lang-switch--pending" title="Add Italian under Settings → Languages to activate this switcher">
+    <span class="is-active">{{ localization.language.iso_code | upcase }}</span>
+  </div>
+{%- endif -%}

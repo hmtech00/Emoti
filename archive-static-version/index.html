@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMOTI — No Limitations · Drop 01</title>
+<meta name="description" content="EMOTI Drop 01 — No Limitations. Few pieces, no restock. Join the waitlist for 24-hour early access before the public drop.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EMOTI">
+<meta property="og:title" content="EMOTI — No Limitations · Drop 01">
+<meta property="og:description" content="Few pieces. No restock. Join the list for 24-hour early access.">
+<!-- TODO(real-assets): set a real 1200x630 OG image once the campaign shoot exists -->
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#signup" data-i18n="skip_to_form">Skip to sign-up form</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="#top">EMOTI</a>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-lang-toggle="it" aria-pressed="false">IT</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang-toggle="en" aria-pressed="true">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 01 + 02 + 03 — Hero, Promise/Countdown, Sign-up form.
+       On desktop these three sections form one two-column composition
+       (image left, everything else right) via CSS grid — see styles.css. -->
+  <div class="hero-composition">
+
+    <div class="hero-media" data-component="hero-media">
+      <!-- TODO(real-assets): populated by main.js from EMOTI_CONFIG.HERO
+           (heroVideo / heroImage / posterImage). Must be the same asset
+           used in the Instagram ad. Placeholder shown until then. -->
+      <div class="hero-media__placeholder">
+        <span data-i18n="hero_placeholder_label">Campaign video or photo — same as the ad</span>
+      </div>
+    </div>
+
+    <section class="promise" aria-labelledby="promise-heading">
+      <p class="eyebrow" data-i18n="hero_eyebrow">DROP 01 · 11.10 · 20:00</p>
+      <h1 id="promise-heading" class="promise__heading">
+        <span data-i18n="hero_h1_line1">NO</span><br>
+        <span data-i18n="hero_h1_line2">LIMITATIONS</span>
+      </h1>
+      <p class="promise__sub" data-i18n="hero_sub">The first EMOTI collection. Few pieces, no restock. The list buys 24 hours before everyone else.</p>
+
+      <div class="countdown" data-component="countdown">
+        <div class="countdown__numbers" data-cd="numbers">
+          <div class="countdown__cell">
+            <span class="countdown__value" data-cd="days">00</span>
+            <span class="countdown__label" data-i18n="cd_days">Days</span>
+          </div>
+          <div class="countdown__cell">
+            <span class="countdown__value" data-cd="hours">00</span>
+            <span class="countdown__label" data-i18n="cd_hours">Hours</span>
+          </div>
+          <div class="countdown__cell">
+            <span class="countdown__value" data-cd="minutes">00</span>
+            <span class="countdown__label" data-i18n="cd_min">Min</span>
+          </div>
+        </div>
+        <p class="countdown__caption" data-cd="caption" role="status"></p>
+      </div>
+    </section>
+
+    <section class="signup" id="signup" aria-labelledby="signup-heading">
+      <div class="signup-card">
+        <h2 id="signup-heading" data-i18n="form_title">Join the list</h2>
+        <p class="signup-card__sub" data-i18n="form_sub">We'll email you the private link on Saturday 10.10 at 20:00.</p>
+
+        <form data-component="signup-form" novalidate>
+          <div class="field">
+            <label for="email" data-i18n="field_email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required
+                   data-i18n-placeholder="field_email_placeholder" placeholder="name@email.com">
+            <span class="field__error" id="email-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="country" data-i18n="field_country">Country</label>
+            <select id="country" name="country" autocomplete="country-name" required>
+              <option value="" data-i18n="field_country_placeholder">Select your country</option>
+            </select>
+            <span class="field__error" id="country-error"></span>
+          </div>
+
+          <div class="field">
+            <label>
+              <span data-i18n="field_size">Preferred size</span>
+              <span class="optional-tag" data-i18n="field_size_optional">(optional)</span>
+            </label>
+            <div class="size-options" role="group" aria-label="Preferred size">
+              <input type="radio" id="size-xs" name="size" value="XS"><label for="size-xs">XS</label>
+              <input type="radio" id="size-s" name="size" value="S"><label for="size-s">S</label>
+              <input type="radio" id="size-m" name="size" value="M"><label for="size-m">M</label>
+              <input type="radio" id="size-l" name="size" value="L"><label for="size-l">L</label>
+              <input type="radio" id="size-xl" name="size" value="XL"><label for="size-xl">XL</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="whatsapp">
+              <span data-i18n="field_whatsapp">WhatsApp</span>
+              <span class="optional-tag" data-i18n="field_whatsapp_optional">(optional)</span>
+            </label>
+            <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel"
+                   data-i18n-placeholder="field_whatsapp_placeholder" placeholder="+1 555 000 0000">
+          </div>
+
+          <div class="consent-group">
+            <div class="consent-row">
+              <input type="checkbox" id="consent-email" name="consent-email">
+              <label for="consent-email" data-i18n="consent_email">I want to receive emails from EMOTI about drops and news.</label>
+            </div>
+            <div class="consent-row">
+              <input type="checkbox" id="consent-whatsapp" name="consent-whatsapp">
+              <label for="consent-whatsapp" data-i18n="consent_whatsapp">I want to receive the drop link on WhatsApp.</label>
+            </div>
+          </div>
+
+          <p class="form-summary" data-form-summary role="alert" hidden></p>
+
+          <button type="submit" class="btn-primary" data-i18n="submit_cta">Join the list</button>
+
+          <p class="privacy-note">
+            <span data-i18n="privacy_note">No spam, just drops.</span>
+            <a href="#" id="privacy-link" data-i18n="privacy_link">Privacy policy</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- 04 — Why join the list -->
+  <section class="benefits" aria-labelledby="benefits-heading">
+    <div class="container">
+      <h2 id="benefits-heading" data-i18n="benefits_title">Why join the list</h2>
+      <ul class="benefits__list">
+        <li class="benefit">
+          <span class="benefit__num">01</span>
+          <div>
+            <h3 data-i18n="benefit_01_title">Access 24 hours early</h3>
+            <p data-i18n="benefit_01_desc">Saturday 10.10 at 20:00, list members only.</p>
+          </div>
+        </li>
+        <li class="benefit">
+          <span class="benefit__num">02</span>
+          <div>
+            <h3 data-i18n="benefit_02_title">Limited pieces</h3>
+            <p data-i18n="benefit_02_desc">One production run. No restock.</p>
+          </div>
+        </li>
+        <li class="benefit">
+          <span class="benefit__num">03</span>
+          <div>
+            <h3 data-i18n="benefit_03_title">Bring 3 friends</h3>
+            <p data-i18n="benefit_03_desc">Get into the first early-access group.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 — The collection -->
+  <section class="collection" aria-labelledby="collection-heading">
+    <div class="container">
+      <div class="collection__head">
+        <h2 id="collection-heading" data-i18n="collection_title">The collection</h2>
+        <p data-i18n="collection_sub">One piece a day, 5–8 October</p>
+      </div>
+      <div class="collection-grid" data-component="collection-grid" aria-live="polite">
+        <!-- rendered by js/collection.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Brand line -->
+  <section class="brand-line" aria-labelledby="brand-line-heading">
+    <div class="container">
+      <h2 id="brand-line-heading" data-i18n="brand_line_title">No Limitations</h2>
+      <p data-i18n="brand_line_body">Clothing is an extension of who you are. There is no single way to define yourself, or to become who you want to be.</p>
+    </div>
+  </section>
+
+  <!-- 07 — FAQ -->
+  <section class="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" data-i18n="faq_title">Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-1" id="faq-btn-1">
+            <span data-i18n="faq_q1">When can I buy?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1"><div><p data-i18n="faq_a1">List: Saturday 10.10 at 20:00. Everyone: Sunday 11.10 at 20:00 (Italian time).</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+            <span data-i18n="faq_q2">Do you ship across the EU?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2"><div><p data-i18n="faq_a2">Yes, across the whole EU. Costs and delivery times per country at checkout.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+            <span data-i18n="faq_q3">Can I return my order?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3"><div><p data-i18n="faq_a3">Yes — see the 14-day right of withdrawal below.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+            <span data-i18n="faq_q4">How does the 14-day right of withdrawal work?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4"><div><p data-i18n="faq_a4">You have 14 days from delivery to withdraw and send the item back for a refund.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
+            <span data-i18n="faq_q5">Where can I find the size guide?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5"><div><p data-i18n="faq_a5">Every piece has its own size guide, linked on its product page.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-6" id="faq-btn-6">
+            <span data-i18n="faq_q6">Are measurements provided in centimetres?</span><span class="icon" aria-hidden="true"></span>
+          </button></h3>
+          <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6"><div><p data-i18n="faq_a6">Yes, every size guide is in centimetres.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 — Second CTA -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <p class="final-cta__date" id="final-cta-heading">11.10 · 20:00</p>
+    <a class="btn-primary" href="#signup" data-i18n="final_cta_title">JOIN THE LIST</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="#top">EMOTI</a>
+    <ul class="site-footer__links">
+      <li><a id="footer-instagram" href="#" target="_blank" rel="noopener">Instagram @Emotitii</a></li>
+      <li><a id="footer-facebook" href="#" target="_blank" rel="noopener">Facebook EMOTI</a></li>
+    </ul>
+    <ul class="site-footer__legal">
+      <li><a id="footer-privacy" href="#" data-i18n="footer_privacy">Privacy</a></li>
+      <li><a id="footer-cookies" href="#" data-i18n="footer_cookies">Cookies</a></li>
+      <li><a id="footer-returns" href="#" data-i18n="footer_returns">Returns and shipping</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie preferences" hidden>
+  <p data-i18n="cookie_text">We use cookies to run this page and, once you agree, to measure the Instagram campaign that brought you here.</p>
+  <div class="cookie-banner__actions">
+    <button type="button" id="cookie-reject" data-i18n="cookie_reject">Reject</button>
+    <button type="button" id="cookie-accept" data-i18n="cookie_accept">Accept</button>
+  </div>
+</div>
+
+<script>
+  // Wires the footer social/legal links from central config — kept inline
+  // and tiny so it runs even if something else fails to load.
+  document.addEventListener('DOMContentLoaded', function () {
+    var cfg = window.EMOTI_CONFIG;
+    if (!cfg) return;
+    document.getElementById('footer-instagram').href = cfg.INSTAGRAM_URL;
+    document.getElementById('footer-facebook').href = cfg.FACEBOOK_URL;
+    document.getElementById('footer-privacy').href = cfg.PRIVACY_URL;
+    document.getElementById('footer-cookies').href = cfg.COOKIES_URL;
+    document.getElementById('footer-returns').href = cfg.RETURNS_URL;
+    document.getElementById('privacy-link').href = cfg.PRIVACY_URL;
+
+    var hero = cfg.HERO;
+    var mediaRoot = document.querySelector('[data-component="hero-media"]');
+    if (hero && mediaRoot && (hero.heroVideo || hero.heroImage)) {
+      var placeholder = mediaRoot.querySelector('.hero-media__placeholder');
+      if (hero.heroVideo) {
+        var v = document.createElement('video');
+        v.src = hero.heroVideo;
+        v.setAttribute('playsinline', '');
+        v.muted = true; v.loop = true; v.autoplay = true;
+        if (hero.posterImage) v.poster = hero.posterImage;
+        mediaRoot.insertBefore(v, placeholder);
+        if (placeholder) placeholder.hidden = true;
+      } else if (hero.heroImage) {
+        var img = document.createElement('img');
+        img.src = hero.heroImage;
+        img.alt = hero.alt || 'EMOTI';
+        mediaRoot.insertBefore(img, placeholder);
+        if (placeholder) placeholder.hidden = true;
+      }
+    }
+  });
+</script>
+
+<script src="js/config.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/consent.js" defer></script>
+<script src="js/countdown.js" defer></script>
+<script src="js/collection.js" defer></script>
+<script src="js/faq.js" defer></script>
+<script src="js/form.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

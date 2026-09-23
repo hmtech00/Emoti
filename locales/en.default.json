@@ -1,0 +1,121 @@
+{
+  "emoti": {
+    "header": {
+      "skip_to_form": "Skip to sign-up form"
+    },
+    "hero": {
+      "eyebrow": "Drop 01 · {{ public_date }} · {{ public_time }}",
+      "headline_line1": "NO",
+      "headline_line2": "LIMITATIONS",
+      "subtext": "The first EMOTI collection. Few pieces, no restock. The list buys 24 hours before everyone else.",
+      "media_placeholder": "Campaign video or photo — same as the ad"
+    },
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Min",
+      "seconds": "Sec",
+      "caption_before_early": "until the list's early access · {{ early_date }} · {{ early_time }}",
+      "caption_before_public": "until the public drop · {{ public_date }} · {{ public_time }}",
+      "live_early": "Early access is open — check your inbox for your link.",
+      "live_public": "The drop is live."
+    },
+    "form": {
+      "title": "Join the list",
+      "subtitle": "We'll email you the private link on {{ early_date }} at {{ early_time }}.",
+      "email_label": "Email",
+      "email_placeholder": "name@email.com",
+      "country_label": "Country",
+      "country_placeholder": "Select your country",
+      "size_label": "Preferred size",
+      "size_optional": "(optional)",
+      "whatsapp_label": "WhatsApp",
+      "whatsapp_optional": "(optional)",
+      "whatsapp_placeholder": "+1 555 000 0000",
+      "consent_email": "I want to receive emails from EMOTI about drops and news.",
+      "consent_whatsapp": "I want to receive the drop link on WhatsApp.",
+      "submit_cta": "Join the list",
+      "submitting": "Joining…",
+      "privacy_note": "No spam, just drops.",
+      "privacy_link": "Privacy policy",
+      "error_email_required": "Enter your email.",
+      "error_email_invalid": "That email doesn’t look right.",
+      "error_country_required": "Select your country.",
+      "error_summary": "Fix the highlighted fields to join the list.",
+      "success_note": "You're on the list — check your email to confirm your sign-up."
+    },
+    "benefits": {
+      "title": "Why join the list"
+    },
+    "collection": {
+      "title": "The collection",
+      "subtitle": "One piece a day, {{ start_date }}–{{ end_date }}",
+      "reveals_prefix": "Reveals",
+      "revealed_prefix": "Revealed",
+      "media_placeholder": "Photo coming with the reveal"
+    },
+    "faq": {
+      "title": "Questions"
+    },
+    "final_cta": {
+      "title": "Join the list"
+    },
+    "footer": {
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "returns": "Returns and shipping"
+    },
+    "cookie": {
+      "text": "We use cookies to run this page and, once you agree, to measure the Instagram campaign that brought you here.",
+      "accept": "Accept",
+      "reject": "Reject",
+      "manage": "Manage preferences"
+    },
+    "thank_you": {
+      "eyebrow": "Drop 01 · {{ public_date }} · {{ public_time }}",
+      "title": "You're on the list.",
+      "subtitle": "On {{ early_date }} at {{ early_time }} you'll get the private link, 24 hours before everyone else. Check your email to confirm your sign-up.",
+      "referral_title": "Bring 3 friends, join the first group",
+      "referral_desc": "Whoever brings 3 friends to the list gets the link first, before sizes run out.",
+      "referral_count_label": "Your friends on the list",
+      "referral_link_label": "Your personal link",
+      "copy": "Copy link",
+      "copied": "Copied",
+      "whatsapp_share": "Send on WhatsApp",
+      "share": "Share",
+      "demo_notice": "Demo data — this referral link isn't connected to a real waitlist tool yet. See the section settings.",
+      "next_steps_title": "Next steps",
+      "step1_title": "Confirm your email",
+      "step1_desc": "Without confirmation we can't send you the link.",
+      "step2_title": "Save our WhatsApp number",
+      "step2_desc": "The link only reaches people who saved the number.",
+      "step2_cta": "Save EMOTI contact",
+      "step2_unavailable": "WhatsApp number not configured yet",
+      "step3_title": "Follow @{{ handle }}",
+      "step3_desc": "From {{ reveal_date }} we reveal one piece a day.",
+      "step3_cta": "Open Instagram",
+      "back_to_page": "Back to the page"
+    }
+  },
+  "emoti_shop": {
+    "options": "Options",
+    "sold_out": "Sold out",
+    "add_to_cart": "Add to cart",
+    "no_products": "No products in this collection yet.",
+    "cart_title": "Your cart",
+    "cart_empty": "Your cart is empty.",
+    "continue_shopping": "Continue shopping",
+    "product": "Product",
+    "quantity": "Quantity",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "update_cart": "Update cart",
+    "checkout": "Checkout",
+    "not_found": "This page doesn't exist.",
+    "back_home": "Back to EMOTI",
+    "search_title": "Search",
+    "search_placeholder": "Search products",
+    "results": "results",
+    "collections_title": "Collections"
+  }
+}

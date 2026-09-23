@@ -1,0 +1,49 @@
+{%- comment -%}
+  Baseline cart page — see the note in main-product.liquid. This uses
+  Shopify's own cart object and posts to Shopify's own /cart/update and
+  checkout (no custom cart/checkout logic), per the brief.
+{%- endcomment -%}
+<section class="basic-page basic-cart">
+  <div class="container">
+    <h1>{{ 'emoti_shop.cart_title' | t }}</h1>
+    {%- if cart.item_count == 0 -%}
+      <p>{{ 'emoti_shop.cart_empty' | t }}</p>
+      <a class="btn-outline" href="{{ routes.all_products_collection_url }}">{{ 'emoti_shop.continue_shopping' | t }}</a>
+    {%- else -%}
+      {%- form 'cart', cart -%}
+        <table class="basic-cart__table">
+          <thead>
+            <tr>
+              <th>{{ 'emoti_shop.product' | t }}</th>
+              <th>{{ 'emoti_shop.quantity' | t }}</th>
+              <th>{{ 'emoti_shop.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr>
+                <td>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  {%- if item.variant.title != 'Default Title' %}<br><small>{{ item.variant.title }}</small>{% endif -%}
+                </td>
+                <td>
+                  <input type="number" min="0" name="updates[]" value="{{ item.quantity }}" aria-label="{{ 'emoti_shop.quantity' | t }}">
+                </td>
+                <td>{{ item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+        <p class="basic-cart__subtotal">{{ 'emoti_shop.subtotal' | t }}: {{ cart.total_price | money }}</p>
+        <div class="basic-cart__actions">
+          <button type="submit" name="update" class="btn-outline">{{ 'emoti_shop.update_cart' | t }}</button>
+          <button type="submit" name="checkout" class="btn-primary">{{ 'emoti_shop.checkout' | t }}</button>
+        </div>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart (baseline)", "settings": [] }
+{% endschema %}

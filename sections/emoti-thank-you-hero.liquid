@@ -1,0 +1,31 @@
+{%- liquid
+  assign early_date = settings.early_access_datetime | date: '%d.%m'
+  assign early_time = settings.early_access_datetime | date: '%H:%M'
+  assign public_date = settings.public_drop_datetime | date: '%d.%m'
+  assign public_time = settings.public_drop_datetime | date: '%H:%M'
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'emoti.thank_you.title' | t
+  endif
+-%}
+<section class="ty-hero">
+  <div class="container" style="padding:0">
+    <p class="eyebrow">{{ 'emoti.thank_you.eyebrow' | t: public_date: public_date, public_time: public_time }}</p>
+    <h1>{{ title }}</h1>
+    <p>{{ 'emoti.thank_you.subtitle' | t: early_date: early_date, early_time: early_time }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Thank-you hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title override",
+      "info": "Leave blank to use the translated default (\"You're on the list.\" / \"Sei in lista.\")."
+    }
+  ]
+}
+{% endschema %}

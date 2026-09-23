@@ -1,0 +1,115 @@
+{%- liquid
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'emoti.collection.title' | t
+  endif
+
+  assign first_reveal = blank
+  assign last_reveal = blank
+  for block in section.blocks
+    assign d = block.settings.reveal_date
+    if d != blank
+      if first_reveal == blank or d < first_reveal
+        assign first_reveal = d
+      endif
+      if last_reveal == blank or d > last_reveal
+        assign last_reveal = d
+      endif
+    endif
+  endfor
+  assign start_date = first_reveal | date: '%-d %b'
+  assign end_date = last_reveal | date: '%-d %b'
+-%}
+<section class="collection" aria-labelledby="collection-heading">
+  <div class="container">
+    <div class="collection__head">
+      <h2 id="collection-heading">{{ title }}</h2>
+      {%- if first_reveal != blank -%}
+        <p>{{ 'emoti.collection.subtitle' | t: start_date: start_date, end_date: end_date }}</p>
+      {%- endif -%}
+    </div>
+    <div class="collection-grid" data-component="collection-grid" aria-live="polite">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          {%- render 'emoti-product-card', block: block -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "info": "Leave blank to use the translated default (\"The collection\" / \"La collezione\")."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_reveal",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Shopify product",
+          "info": "Once linked, title/price/image/URL come straight from this product. Leave empty to use the placeholder fields below."
+        },
+        {
+          "type": "select",
+          "id": "garment",
+          "label": "Placeholder silhouette",
+          "options": [
+            { "value": "tshirt", "label": "T-shirt" },
+            { "value": "tank", "label": "Tank top" },
+            { "value": "trousers", "label": "Trousers" },
+            { "value": "socks", "label": "Socks" }
+          ],
+          "default": "tshirt"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Placeholder name",
+          "info": "Used only if no Shopify product is linked above."
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Placeholder price",
+          "info": "e.g. €49.99 — used only if no Shopify product is linked above."
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Placeholder image",
+          "info": "Optional — shown after the reveal date if no Shopify product is linked."
+        },
+        {
+          "type": "text",
+          "id": "reveal_date",
+          "label": "Reveal date & time (ISO 8601)",
+          "info": "e.g. 2026-10-05T00:00:00+02:00. Before this moment the card stays blurred."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "EMOTI Collection",
+      "blocks": [
+        { "type": "product_reveal", "settings": { "garment": "tshirt", "custom_title": "T-shirt Big Time Stepper", "custom_price": "€49.99", "reveal_date": "2026-10-05T00:00:00+02:00" } },
+        { "type": "product_reveal", "settings": { "garment": "tank", "custom_title": "Tank top", "custom_price": "€29.99", "reveal_date": "2026-10-06T00:00:00+02:00" } },
+        { "type": "product_reveal", "settings": { "garment": "trousers", "custom_title": "Trousers", "custom_price": "€80.00", "reveal_date": "2026-10-07T00:00:00+02:00" } },
+        { "type": "product_reveal", "settings": { "garment": "socks", "custom_title": "Socks", "custom_price": "€9.99", "reveal_date": "2026-10-08T00:00:00+02:00" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,14 @@
+{
+  "name": "emoti-shopify-theme",
+  "private": true,
+  "scripts": {
+    "dev": "shopify theme dev",
+    "push": "shopify theme push",
+    "push:unpublished": "shopify theme push --unpublished",
+    "check": "shopify theme check",
+    "pull": "shopify theme pull"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^4.8.0"
+  }
+}

@@ -1,0 +1,28 @@
+<section class="basic-page">
+  <div class="container">
+    <h1>{{ 'emoti_shop.search_title' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="basic-search-form">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'emoti_shop.search_placeholder' | t }}" aria-label="{{ 'emoti_shop.search_title' | t }}">
+      <button type="submit" class="btn-outline">{{ 'emoti_shop.search_title' | t }}</button>
+    </form>
+
+    {%- if search.performed -%}
+      <p>{{ search.results_count }} {{ 'emoti_shop.results' | t }}</p>
+      <div class="collection-grid">
+        {%- for item in search.results -%}
+          <article class="product-card is-revealed">
+            <a class="product-card__link" href="{{ item.url }}" aria-label="{{ item.title }}"></a>
+            <div class="product-card__meta">
+              <p class="product-card__name">{{ item.title }}</p>
+              {%- if item.object_type == 'product' -%}<p class="product-card__price">{{ item.price | money }}</p>{%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Search (baseline)", "settings": [] }
+{% endschema %}

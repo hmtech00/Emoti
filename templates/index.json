@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "hero": { "type": "emoti-hero" },
+    "benefits": {
+      "type": "emoti-benefits",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "title": "Access 24 hours early", "description": "Saturday 10.10 at 20:00, list members only." } },
+        "b2": { "type": "benefit", "settings": { "title": "Limited pieces", "description": "One production run. No restock." } },
+        "b3": { "type": "benefit", "settings": { "title": "Bring 3 friends", "description": "Get into the first early-access group." } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "collection": {
+      "type": "emoti-collection",
+      "blocks": {
+        "p1": { "type": "product_reveal", "settings": { "garment": "tshirt", "custom_title": "T-shirt Big Time Stepper", "custom_price": "€49.99", "reveal_date": "2026-10-05T00:00:00+02:00" } },
+        "p2": { "type": "product_reveal", "settings": { "garment": "tank", "custom_title": "Tank top", "custom_price": "€29.99", "reveal_date": "2026-10-06T00:00:00+02:00" } },
+        "p3": { "type": "product_reveal", "settings": { "garment": "trousers", "custom_title": "Trousers", "custom_price": "€80.00", "reveal_date": "2026-10-07T00:00:00+02:00" } },
+        "p4": { "type": "product_reveal", "settings": { "garment": "socks", "custom_title": "Socks", "custom_price": "€9.99", "reveal_date": "2026-10-08T00:00:00+02:00" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
+    "brand-line": { "type": "emoti-brand-line" },
+    "faq": {
+      "type": "emoti-faq",
+      "blocks": {
+        "q1": { "type": "question", "settings": { "question": "When can I buy?", "answer": "List: Saturday 10.10 at 20:00. Everyone: Sunday 11.10 at 20:00 (Italian time)." } },
+        "q2": { "type": "question", "settings": { "question": "Do you ship across the EU?", "answer": "Yes, across the whole EU. Costs and delivery times per country at checkout." } },
+        "q3": { "type": "question", "settings": { "question": "Can I return my order?", "answer": "Yes — see the 14-day right of withdrawal below." } },
+        "q4": { "type": "question", "settings": { "question": "How does the 14-day right of withdrawal work?", "answer": "You have 14 days from delivery to withdraw and send the item back for a refund." } },
+        "q5": { "type": "question", "settings": { "question": "Where can I find the size guide?", "answer": "Every piece has its own size guide, linked on its product page." } },
+        "q6": { "type": "question", "settings": { "question": "Are measurements provided in centimetres?", "answer": "Yes, every size guide is in centimetres." } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"]
+    },
+    "final-cta": { "type": "emoti-final-cta" }
+  },
+  "order": ["hero", "benefits", "collection", "brand-line", "faq", "final-cta"]
+}

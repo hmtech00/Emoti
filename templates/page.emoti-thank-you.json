@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "ty-hero": { "type": "emoti-thank-you-hero" },
+    "referral": { "type": "emoti-referral" },
+    "next-steps": { "type": "emoti-next-steps" }
+  },
+  "order": ["ty-hero", "referral", "next-steps"]
+}

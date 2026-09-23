@@ -1,0 +1,72 @@
+{%- liquid
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'emoti.thank_you.next_steps_title' | t
+  endif
+  assign reveal_date = section.settings.reveal_date | default: '5 Oct'
+-%}
+<section class="next-steps" aria-labelledby="next-steps-heading">
+  <h2 id="next-steps-heading">{{ title }}</h2>
+
+  <div class="next-step">
+    <span class="next-step__num">01</span>
+    <div>
+      <h3>{{ 'emoti.thank_you.step1_title' | t }}</h3>
+      <p>{{ 'emoti.thank_you.step1_desc' | t }}</p>
+    </div>
+  </div>
+
+  <div class="next-step">
+    <span class="next-step__num">02</span>
+    <div>
+      <h3>{{ 'emoti.thank_you.step2_title' | t }}</h3>
+      <p>{{ 'emoti.thank_you.step2_desc' | t }}</p>
+      {%- if settings.whatsapp_number != blank -%}
+        <a class="btn-outline" href="#" data-action="save-whatsapp">{{ 'emoti.thank_you.step2_cta' | t }}</a>
+      {%- else -%}
+        <a class="btn-outline" href="#" aria-disabled="true" title="{{ 'emoti.thank_you.step2_unavailable' | t }}" data-action="save-whatsapp">{{ 'emoti.thank_you.step2_cta' | t }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="next-step">
+    <span class="next-step__num">03</span>
+    <div>
+      <h3>{{ 'emoti.thank_you.step3_title' | t: handle: settings.instagram_handle }}</h3>
+      <p>{{ 'emoti.thank_you.step3_desc' | t: reveal_date: reveal_date }}</p>
+      <a class="btn-outline" href="{{ settings.instagram_url | default: '#' }}" target="_blank" rel="noopener" data-action="open-instagram">{{ 'emoti.thank_you.step3_cta' | t }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="ty-brand-line">
+  <div class="container" style="padding:0">
+    <h2>{{ section.settings.brand_line | default: 'No Limitations' }}</h2>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Next steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title override",
+      "info": "Leave blank to use the translated default."
+    },
+    {
+      "type": "text",
+      "id": "reveal_date",
+      "label": "First reveal date (display text)",
+      "default": "5 Oct"
+    },
+    {
+      "type": "text",
+      "id": "brand_line",
+      "label": "Closing brand line",
+      "default": "No Limitations"
+    }
+  ]
+}
+{% endschema %}

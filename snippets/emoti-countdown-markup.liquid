@@ -1,0 +1,23 @@
+{%- comment -%}
+  Renders the live countdown digits. Values are filled in by
+  assets/emoti-countdown.js at runtime (ticks every second, retargets
+  from early-access to public-drop to a "live" state automatically) —
+  the numbers below are just a non-JS fallback / first-paint state.
+{%- endcomment -%}
+<div class="countdown" data-component="countdown">
+  <div class="countdown__numbers" data-cd="numbers">
+    <div class="countdown__cell">
+      <span class="countdown__value" data-cd="days">00</span>
+      <span class="countdown__label">{{ 'emoti.countdown.days' | t }}</span>
+    </div>
+    <div class="countdown__cell">
+      <span class="countdown__value" data-cd="hours">00</span>
+      <span class="countdown__label">{{ 'emoti.countdown.hours' | t }}</span>
+    </div>
+    <div class="countdown__cell">
+      <span class="countdown__value" data-cd="minutes">00</span>
+      <span class="countdown__label">{{ 'emoti.countdown.minutes' | t }}</span>
+    </div>
+  </div>
+  <p class="countdown__caption" data-cd="caption" role="status"></p>
+</div>

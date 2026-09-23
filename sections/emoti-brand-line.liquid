@@ -1,0 +1,33 @@
+{%- comment -%}
+  "No Limitations" is the campaign mark itself, not a translated phrase —
+  your own Italian reference material keeps it in English too, so the
+  title setting's default is used as-is rather than routed through a
+  locale key.
+{%- endcomment -%}
+<section class="brand-line" aria-labelledby="brand-line-heading">
+  <div class="container">
+    <h2 id="brand-line-heading">{{ section.settings.title }}</h2>
+    {%- if section.settings.body != blank -%}<p>{{ section.settings.body }}</p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Brand Line",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "No Limitations"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Brand DNA sentence",
+      "info": "Keep this short — the page exists to get sign-ups, not to tell the whole brand story.",
+      "default": "Clothing is an extension of who you are. There is no single way to define yourself, or to become who you want to be."
+    }
+  ]
+}
+{% endschema %}

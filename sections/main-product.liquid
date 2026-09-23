@@ -1,0 +1,57 @@
+{%- comment -%}
+  Baseline product page — deliberately simple. It exists so the theme is
+  valid and every product is genuinely buyable through Shopify's own
+  cart/checkout (per the brief: no custom checkout) from day one. It is
+  NOT meant as the final, polished PDP: before the public drop, swap this
+  section (and main-collection-product-grid / main-cart) for Dawn's own,
+  or build them out further — variant images, zoom, upsells, etc. aren't
+  in scope here.
+{%- endcomment -%}
+<section class="basic-page basic-product">
+  <div class="container">
+    <div class="basic-product__grid">
+      <div class="basic-product__media">
+        {%- if product.featured_image -%}
+          {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'eager', alt: product.featured_image.alt | default: product.title }}
+        {%- else -%}
+          {%- render 'emoti-silhouette', garment: 'tshirt' -%}
+        {%- endif -%}
+      </div>
+      <div class="basic-product__info">
+        <h1>{{ product.title }}</h1>
+        <p class="basic-product__price">{{ product.price | money }}</p>
+        {%- if product.description != blank -%}
+          <div class="basic-product__description">{{ product.description }}</div>
+        {%- endif -%}
+
+        {%- form 'product', product -%}
+          {%- unless product.has_only_default_variant -%}
+            <div class="field">
+              <label for="ProductSelect">{{ 'emoti_shop.options' | t }}</label>
+              <select id="ProductSelect" name="id">
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                    {{ variant.title }}{% unless variant.available %} — {{ 'emoti_shop.sold_out' | t }}{% endunless %}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {%- endunless -%}
+          <button type="submit" class="btn-primary" {% unless product.available %}disabled{% endunless %}>
+            {%- if product.available -%}
+              {{ 'emoti_shop.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'emoti_shop.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Product (baseline)", "settings": [] }
+{% endschema %}

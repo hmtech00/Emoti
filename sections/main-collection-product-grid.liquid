@@ -1,0 +1,46 @@
+{%- comment -%}
+  Baseline collection grid — see the note in main-product.liquid. Swap for
+  Dawn's collection section (filters, sort, pagination UI) before this is
+  the real storefront browsing experience.
+{%- endcomment -%}
+<section class="basic-page">
+  <div class="container">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="basic-page__description">{{ collection.description }}</div>
+    {%- endif -%}
+    {%- paginate collection.products by 24 -%}
+      <div class="collection-grid">
+        {%- for product in collection.products -%}
+          <article class="product-card is-revealed">
+            <a class="product-card__link" href="{{ product.url }}" aria-label="{{ product.title }}"></a>
+            <div class="product-card__media">
+              {%- if product.featured_image -%}
+                {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: product.title }}
+              {%- else -%}
+                {%- render 'emoti-silhouette', garment: 'tshirt' -%}
+              {%- endif -%}
+            </div>
+            <div class="product-card__meta">
+              <p class="product-card__name">{{ product.title }}</p>
+              <p class="product-card__price">{{ product.price | money }}</p>
+            </div>
+          </article>
+        {%- else -%}
+          <p>{{ 'emoti_shop.no_products' | t }}</p>
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        <nav class="basic-pagination" aria-label="Pagination">
+          {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">←</a>{%- endif -%}
+          <span>{{ paginate.current_page }} / {{ paginate.pages }}</span>
+          {%- if paginate.next -%}<a href="{{ paginate.next.url }}">→</a>{%- endif -%}
+        </nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collection (baseline)", "settings": [] }
+{% endschema %}

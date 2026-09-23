@@ -1,0 +1,32 @@
+{%- comment -%}
+  Inline line-art placeholder for one of the 4 Drop 01 garments — used
+  until a real product photo exists. No stock photography stands in for
+  the collection; this is deliberately abstract. Pass `garment`:
+  tshirt | tank | trousers | socks.
+{%- endcomment -%}
+{%- case garment -%}
+  {%- when 'tank' -%}
+    <svg viewBox="0 0 105 115" aria-hidden="true" class="silhouette-svg">
+      <g fill="currentColor" opacity="0.16">
+        <path d="M40 22 C40 15 45 12 52.5 12 C60 12 65 15 65 22 L65 32 L58 32 L58 24 C58 21 56 20 52.5 20 C49 20 47 21 47 24 L47 32 L40 32 Z M38 32 L67 32 L67 105 L38 105 Z"/>
+      </g>
+    </svg>
+  {%- when 'trousers' -%}
+    <svg viewBox="0 0 105 115" aria-hidden="true" class="silhouette-svg">
+      <g fill="currentColor" opacity="0.16">
+        <path d="M32 15 L73 15 L76 105 L60 105 L52.5 45 L45 105 L29 105 Z"/>
+      </g>
+    </svg>
+  {%- when 'socks' -%}
+    <svg viewBox="0 0 105 115" aria-hidden="true" class="silhouette-svg">
+      <g fill="currentColor" opacity="0.16">
+        <path d="M42 10 L63 10 L63 60 L78 78 C82 83 80 92 72 93 L46 95 C40 95.5 35 91 35 84 L35 10 Z"/>
+      </g>
+    </svg>
+  {%- else -%}
+    <svg viewBox="0 0 105 115" aria-hidden="true" class="silhouette-svg">
+      <g fill="currentColor" opacity="0.16">
+        <path d="M35 20 L70 20 L85 35 L75 45 L65 40 L65 105 L40 105 L40 40 L30 45 L20 35 Z"/>
+      </g>
+    </svg>
+{%- endcase -%}

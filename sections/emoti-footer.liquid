@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="{{ routes.root_url }}">{{ section.settings.logo_text | default: shop.name }}</a>
+    <ul class="site-footer__links">
+      {%- if settings.instagram_url != blank -%}
+        <li><a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram @{{ settings.instagram_handle }}</a></li>
+      {%- endif -%}
+      {%- if settings.facebook_url != blank -%}
+        <li><a href="{{ settings.facebook_url }}" target="_blank" rel="noopener">Facebook {{ shop.name }}</a></li>
+      {%- endif -%}
+    </ul>
+    <ul class="site-footer__legal">
+      {%- if settings.privacy_url != blank -%}<li><a href="{{ settings.privacy_url }}">{{ 'emoti.footer.privacy' | t }}</a></li>{%- endif -%}
+      {%- if settings.cookies_url != blank -%}<li><a href="{{ settings.cookies_url }}">{{ 'emoti.footer.cookies' | t }}</a></li>{%- endif -%}
+      {%- if settings.returns_url != blank -%}<li><a href="{{ settings.returns_url }}">{{ 'emoti.footer.returns' | t }}</a></li>{%- endif -%}
+    </ul>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "EMOTI Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Text logo",
+      "default": "EMOTI"
+    }
+  ]
+}
+{% endschema %}

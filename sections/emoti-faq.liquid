@@ -1,0 +1,66 @@
+{%- liquid
+  assign title = section.settings.title
+  if title == blank
+    assign title = 'emoti.faq.title' | t
+  endif
+-%}
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <h2 id="faq-heading">{{ title }}</h2>
+    <div class="faq-list">
+      {%- for block in section.blocks -%}
+        {%- assign panel_id = 'faq-panel-' | append: forloop.index -%}
+        {%- assign btn_id = 'faq-btn-' | append: forloop.index -%}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <h3>
+            <button type="button" data-faq-trigger aria-expanded="false" aria-controls="{{ panel_id }}" id="{{ btn_id }}">
+              <span>{{ block.settings.question }}</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-panel" id="{{ panel_id }}" role="region" aria-labelledby="{{ btn_id }}">
+            <div><p>{{ block.settings.answer }}</p></div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "info": "Leave blank to use the translated default (\"Questions\" / \"Domande\")."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "EMOTI FAQ",
+      "blocks": [
+        { "type": "question", "settings": { "question": "When can I buy?", "answer": "List: Saturday 10.10 at 20:00. Everyone: Sunday 11.10 at 20:00 (Italian time)." } },
+        { "type": "question", "settings": { "question": "Do you ship across the EU?", "answer": "Yes, across the whole EU. Costs and delivery times per country at checkout." } },
+        { "type": "question", "settings": { "question": "Can I return my order?", "answer": "Yes — see the 14-day right of withdrawal below." } },
+        { "type": "question", "settings": { "question": "How does the 14-day right of withdrawal work?", "answer": "You have 14 days from delivery to withdraw and send the item back for a refund." } },
+        { "type": "question", "settings": { "question": "Where can I find the size guide?", "answer": "Every piece has its own size guide, linked on its product page." } },
+        { "type": "question", "settings": { "question": "Are measurements provided in centimetres?", "answer": "Yes, every size guide is in centimetres." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

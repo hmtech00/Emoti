@@ -1,0 +1,194 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "EMOTI — No Limitations",
+    "theme_version": "1.0.0",
+    "theme_author": "EMOTI",
+    "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes",
+    "theme_support_email": "support@example.com"
+  },
+  {
+    "name": "Drop 01 — Campaign",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "These dates drive the live countdown and every date shown in copy. Use full ISO 8601 with a timezone offset, e.g. 2026-10-10T20:00:00+02:00 for Rome (CEST)."
+      },
+      {
+        "type": "text",
+        "id": "drop_name",
+        "label": "Drop name",
+        "default": "Drop 01"
+      },
+      {
+        "type": "text",
+        "id": "early_access_datetime",
+        "label": "List early-access date & time (ISO 8601)",
+        "default": "2026-10-10T20:00:00+02:00",
+        "info": "When the waitlist gets the private link."
+      },
+      {
+        "type": "text",
+        "id": "public_drop_datetime",
+        "label": "Public drop date & time (ISO 8601)",
+        "default": "2026-10-11T20:00:00+02:00",
+        "info": "When the shop opens to everyone."
+      }
+    ]
+  },
+  {
+    "name": "Pages",
+    "settings": [
+      {
+        "type": "page",
+        "id": "thank_you_page",
+        "label": "Thank-you page",
+        "info": "The sign-up form redirects here after a successful submission. Create a page using the page.emoti-thank-you template and select it here."
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_handle",
+        "label": "Instagram handle (without @)",
+        "default": "Emotitii"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "facebook_url",
+        "label": "Facebook URL"
+      }
+    ]
+  },
+  {
+    "name": "Legal",
+    "settings": [
+      {
+        "type": "url",
+        "id": "privacy_url",
+        "label": "Privacy policy",
+        "info": "Pick your Shopify policy page under Settings → Policies, or link a custom page."
+      },
+      {
+        "type": "url",
+        "id": "cookies_url",
+        "label": "Cookie policy"
+      },
+      {
+        "type": "url",
+        "id": "returns_url",
+        "label": "Returns & shipping"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp Business number",
+        "info": "International format, digits only, e.g. 393331234567. Leave blank to keep the \"Save contact\" button disabled until it's ready."
+      }
+    ]
+  },
+  {
+    "name": "SEO & sharing",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "og_image",
+        "label": "Default social share image",
+        "info": "Shown when this page is shared on Instagram/Facebook/etc. and the page itself has no image (e.g. the waitlist homepage). Recommended 1200×630."
+      }
+    ]
+  },
+  {
+    "name": "Tracking & consent",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The Meta Pixel never loads and the Lead event never fires until a visitor accepts marketing cookies in the banner — required for EU compliance."
+      },
+      {
+        "type": "text",
+        "id": "meta_pixel_id",
+        "label": "Meta Pixel ID",
+        "info": "Leave blank until you have a real Pixel ID. No placeholder ID is used."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Dark surfaces (page base)"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Background",
+        "default": "#131110"
+      },
+      {
+        "type": "color",
+        "id": "color_ink_2",
+        "label": "Raised surface",
+        "default": "#1c1815"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#f4efe6"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#a89b8d"
+      },
+      {
+        "type": "header",
+        "content": "Light surface (sign-up card)"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Card background",
+        "default": "#f5f1e9"
+      },
+      {
+        "type": "color",
+        "id": "color_ink_on_bg",
+        "label": "Card text",
+        "default": "#15110e"
+      },
+      {
+        "type": "header",
+        "content": "Accent"
+      },
+      {
+        "type": "color",
+        "id": "color_red",
+        "label": "CTA / accent red",
+        "default": "#9c1c1c"
+      },
+      {
+        "type": "color",
+        "id": "color_red_dark",
+        "label": "Accent red — hover",
+        "default": "#7a1515"
+      }
+    ]
+  }
+]

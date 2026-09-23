@@ -1,0 +1,121 @@
+{
+  "emoti": {
+    "header": {
+      "skip_to_form": "Vai al modulo di iscrizione"
+    },
+    "hero": {
+      "eyebrow": "Drop 01 · {{ public_date }} · ore {{ public_time }}",
+      "headline_line1": "NO",
+      "headline_line2": "LIMITATIONS",
+      "subtext": "La prima collezione EMOTI. Pochi pezzi, nessun restock. Chi è in lista compra 24 ore prima di tutti.",
+      "media_placeholder": "Video o foto campagna — stessa dell’ad"
+    },
+    "countdown": {
+      "days": "Giorni",
+      "hours": "Ore",
+      "minutes": "Min",
+      "seconds": "Sec",
+      "caption_before_early": "all'accesso anticipato della lista · {{ early_date }} · ore {{ early_time }}",
+      "caption_before_public": "al drop pubblico · {{ public_date }} · ore {{ public_time }}",
+      "live_early": "L'accesso anticipato è aperto — controlla la tua email per il link.",
+      "live_public": "Il drop è aperto."
+    },
+    "form": {
+      "title": "Entra in lista",
+      "subtitle": "Ti mandiamo il link privato {{ early_date }} alle {{ early_time }}.",
+      "email_label": "Email",
+      "email_placeholder": "nome@email.com",
+      "country_label": "Paese",
+      "country_placeholder": "Seleziona il tuo paese",
+      "size_label": "La tua taglia",
+      "size_optional": "(facoltativo)",
+      "whatsapp_label": "WhatsApp",
+      "whatsapp_optional": "(facoltativo)",
+      "whatsapp_placeholder": "+39 ...",
+      "consent_email": "Voglio ricevere email da EMOTI su drop e novità.",
+      "consent_whatsapp": "Voglio ricevere il link del drop su WhatsApp.",
+      "submit_cta": "Entra in lista",
+      "submitting": "Iscrizione…",
+      "privacy_note": "Niente spam, solo drop.",
+      "privacy_link": "Privacy policy",
+      "error_email_required": "Inserisci la tua email.",
+      "error_email_invalid": "Questa email non sembra valida.",
+      "error_country_required": "Seleziona il tuo paese.",
+      "error_summary": "Correggi i campi evidenziati per entrare in lista.",
+      "success_note": "Sei in lista — controlla la tua email per confermare l'iscrizione."
+    },
+    "benefits": {
+      "title": "Perché entrare in lista"
+    },
+    "collection": {
+      "title": "La collezione",
+      "subtitle": "un capo al giorno, dal {{ start_date }} all’{{ end_date }}",
+      "reveals_prefix": "Si svela",
+      "revealed_prefix": "Svelata",
+      "media_placeholder": "Foto in arrivo con la rivelazione"
+    },
+    "faq": {
+      "title": "Domande"
+    },
+    "final_cta": {
+      "title": "Entra in lista"
+    },
+    "footer": {
+      "privacy": "Privacy",
+      "cookies": "Cookie",
+      "returns": "Resi e spedizioni"
+    },
+    "cookie": {
+      "text": "Usiamo i cookie per far funzionare questa pagina e, se acconsenti, per misurare la campagna Instagram che ti ha portato qui.",
+      "accept": "Accetta",
+      "reject": "Rifiuta",
+      "manage": "Gestisci preferenze"
+    },
+    "thank_you": {
+      "eyebrow": "Drop 01 · {{ public_date }} · ore {{ public_time }}",
+      "title": "Sei in lista.",
+      "subtitle": "Il {{ early_date }} alle {{ early_time }} ricevi il link privato, 24 ore prima di tutti. Controlla la tua email per confermare l'iscrizione.",
+      "referral_title": "Porta 3 amici, entra nel primo gruppo",
+      "referral_desc": "Chi porta 3 amici in lista riceve il link per primo, prima che le taglie finiscano.",
+      "referral_count_label": "I tuoi amici in lista",
+      "referral_link_label": "Il tuo link personale",
+      "copy": "Copia",
+      "copied": "Copiato",
+      "whatsapp_share": "Invia su WhatsApp",
+      "share": "Condividi",
+      "demo_notice": "Dati demo — questo link di referral non è ancora collegato a un tool reale. Vedi le impostazioni della sezione.",
+      "next_steps_title": "Prossimi passi",
+      "step1_title": "Conferma la tua email",
+      "step1_desc": "Senza conferma non possiamo mandarti il link.",
+      "step2_title": "Salva il nostro numero WhatsApp",
+      "step2_desc": "Il link arriva solo a chi ha salvato il numero.",
+      "step2_cta": "Salva contatto EMOTI",
+      "step2_unavailable": "Numero WhatsApp non ancora configurato",
+      "step3_title": "Segui @{{ handle }}",
+      "step3_desc": "Dal {{ reveal_date }} sveliamo un capo al giorno.",
+      "step3_cta": "Apri Instagram",
+      "back_to_page": "Torna alla pagina"
+    }
+  },
+  "emoti_shop": {
+    "options": "Opzioni",
+    "sold_out": "Esaurito",
+    "add_to_cart": "Aggiungi al carrello",
+    "no_products": "Ancora nessun prodotto in questa collezione.",
+    "cart_title": "Il tuo carrello",
+    "cart_empty": "Il tuo carrello è vuoto.",
+    "continue_shopping": "Continua lo shopping",
+    "product": "Prodotto",
+    "quantity": "Quantità",
+    "total": "Totale",
+    "subtotal": "Subtotale",
+    "update_cart": "Aggiorna carrello",
+    "checkout": "Checkout",
+    "not_found": "Questa pagina non esiste.",
+    "back_home": "Torna a EMOTI",
+    "search_title": "Cerca",
+    "search_placeholder": "Cerca prodotti",
+    "results": "risultati",
+    "collections_title": "Collezioni"
+  }
+}

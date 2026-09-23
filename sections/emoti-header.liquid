@@ -1,0 +1,38 @@
+<header class="site-header{% if section.settings.sticky %} is-sticky{% endif %}">
+  <div class="container">
+    <a class="logo" href="{{ routes.root_url }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name, loading: 'eager' }}
+      {%- else -%}
+        {{ section.settings.logo_text | default: shop.name }}
+      {%- endif -%}
+    </a>
+    {%- render 'emoti-language-switcher' -%}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "EMOTI Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Optional — leave blank to use the text logo below."
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Text logo",
+      "default": "EMOTI"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky header",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

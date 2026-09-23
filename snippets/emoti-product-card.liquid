@@ -1,0 +1,94 @@
+{%- comment -%}
+  One collection card. Pass in `block`.
+
+  Block settings expected: product (product reference, optional),
+  garment (select: tshirt/tank/trousers/socks — picks the placeholder
+  silhouette and is used as a fallback name), custom_title, custom_price,
+  reveal_date (text, ISO 8601).
+
+  If `block.settings.product` is set, title/price/image/url come straight
+  from the real Shopify product — nothing is duplicated by hand. Until a
+  product is linked, custom_title/custom_price (or the locale-driven
+  garment name) and an inline SVG silhouette stand in, so the section
+  never blocks on missing catalog data.
+
+  The reveal itself (blur → real photo) is enforced twice: this markup
+  only prints the photo/price server-side once reveal_date has passed
+  (so a visitor can't peek by reading page source before the reveal), and
+  assets/emoti-collection.js re-checks client-side once a minute in case
+  the page stays open across the reveal moment.
+{%- endcomment -%}
+{%- liquid
+  assign product = block.settings.product
+  assign reveal_date = block.settings.reveal_date
+  assign now = 'now' | date: '%s'
+  assign reveal_ts = reveal_date | date: '%s'
+  assign is_revealed = false
+  if reveal_ts and now >= reveal_ts
+    assign is_revealed = true
+  endif
+
+  assign garment_names = 'tshirt:T-shirt Big Time Stepper,tank:Tank top,trousers:Trousers,socks:Socks' | split: ','
+  assign display_title = block.settings.custom_title
+  if product
+    assign display_title = product.title
+  endif
+  if display_title == blank
+    for pair in garment_names
+      assign parts = pair | split: ':'
+      if parts.first == block.settings.garment
+        assign display_title = parts.last
+      endif
+    endfor
+  endif
+-%}
+<article
+  class="product-card {% if is_revealed %}is-revealed{% else %}is-hidden{% endif %}"
+  data-reveal-date="{{ reveal_date }}"
+  data-component="product-card"
+>
+  <div class="product-card__media {% unless is_revealed %}product-card__media--blurred{% endunless %}">
+    {%- if is_revealed and product and product.featured_image -%}
+      {{
+        product.featured_image
+        | image_url: width: 800
+        | image_tag:
+          loading: 'lazy',
+          widths: '400,600,800',
+          sizes: '(min-width: 960px) 22vw, 46vw',
+          alt: product.featured_image.alt | default: display_title
+      }}
+    {%- elsif is_revealed and block.settings.custom_image -%}
+      {{
+        block.settings.custom_image
+        | image_url: width: 800
+        | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 960px) 22vw, 46vw', alt: display_title
+      }}
+    {%- else -%}
+      {%- render 'emoti-silhouette', garment: block.settings.garment -%}
+      {%- unless is_revealed -%}
+        <span class="product-card__placeholder-label">{{ 'emoti.collection.media_placeholder' | t }}</span>
+      {%- endunless -%}
+    {%- endif -%}
+  </div>
+  <div class="product-card__meta">
+    <p class="product-card__name">{{ display_title }}</p>
+    {%- if is_revealed -%}
+      <p class="product-card__price">
+        {%- if product -%}
+          {{ product.price | money }}
+        {%- else -%}
+          {{ block.settings.custom_price }}
+        {%- endif -%}
+      </p>
+    {%- else -%}
+      <p class="product-card__reveal">
+        <span class="eyebrow">{{ 'emoti.collection.reveals_prefix' | t }}</span>
+        {{ reveal_date | date: '%a %d/%m' }}
+      </p>
+    {%- endif -%}
+  </div>
+  {%- if is_revealed and product -%}
+    <a href="{{ product.url }}" class="product-card__link" aria-label="{{ display_title }}"></a>
+  {%- endif -%}
+</article>

@@ -1,0 +1,14 @@
+<section class="basic-page">
+  <div class="container">
+    <h1>{{ 'emoti_shop.collections_title' | t }}</h1>
+    <ul class="basic-list-collections">
+      {%- for collection in collections -%}
+        <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections (baseline)", "settings": [] }
+{% endschema %}

@@ -1,0 +1,26 @@
+{%- liquid
+  assign cta_text = section.settings.cta_text
+  if cta_text == blank
+    assign cta_text = 'emoti.final_cta.title' | t
+  endif
+  assign public_date = settings.public_drop_datetime | date: '%d.%m'
+  assign public_time = settings.public_drop_datetime | date: '%H:%M'
+-%}
+<section class="final-cta" aria-labelledby="final-cta-heading">
+  <p class="final-cta__date" id="final-cta-heading">{{ public_date }} · {{ public_time }}</p>
+  <a class="btn-primary" href="#signup">{{ cta_text }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "EMOTI Final CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "info": "Leave blank to use the translated default (\"Join the list\" / \"Entra in lista\")."
+    }
+  ]
+}
+{% endschema %}
