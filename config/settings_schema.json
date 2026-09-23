@@ -130,48 +130,52 @@
     "name": "Colors",
     "settings": [
       {
+        "type": "paragraph",
+        "content": "White page (matching the EMOTI Instagram look), with the sign-up form as a dark accent card — the inverse of the earlier near-black concept."
+      },
+      {
         "type": "header",
-        "content": "Dark surfaces (page base)"
+        "content": "Page (light surfaces)"
       },
       {
         "type": "color",
         "id": "color_ink",
-        "label": "Background",
-        "default": "#131110"
+        "label": "Page background",
+        "default": "#faf9f6"
       },
       {
         "type": "color",
         "id": "color_ink_2",
-        "label": "Raised surface",
-        "default": "#1c1815"
+        "label": "Raised surface (cards, countdown cells)",
+        "default": "#f1ede4"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "Text",
-        "default": "#f4efe6"
+        "label": "Page text",
+        "default": "#17130f"
       },
       {
         "type": "color",
         "id": "color_muted",
-        "label": "Muted text",
-        "default": "#a89b8d"
+        "label": "Muted page text",
+        "default": "#746a5e"
       },
       {
         "type": "header",
-        "content": "Light surface (sign-up card)"
+        "content": "Sign-up form card (dark accent)"
       },
       {
         "type": "color",
         "id": "color_bg",
         "label": "Card background",
-        "default": "#f5f1e9"
+        "default": "#15120f"
       },
       {
         "type": "color",
         "id": "color_ink_on_bg",
         "label": "Card text",
-        "default": "#15110e"
+        "default": "#f5f1e9"
       },
       {
         "type": "header",
@@ -188,6 +192,13 @@
         "id": "color_red_dark",
         "label": "Accent red — hover",
         "default": "#7a1515"
+      },
+      {
+        "type": "color",
+        "id": "color_red_accent",
+        "label": "Accent red — small text on the page",
+        "info": "Used for eyebrows, prices, the italic \"No Limitations\" line — needs to stay readable on the light page background, so keep it darker/more saturated than a pastel red.",
+        "default": "#a8241d"
       }
     ]
   }

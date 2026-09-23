@@ -11,24 +11,33 @@
    from Theme settings → Colors and are injected as a small :root override
    in layout/theme.liquid (a plain .css file in assets/ isn't parsed as
    Liquid, so the settings bridge lives there instead — see the comment
-   in theme.liquid next to <style id="emoti-color-overrides">). */
-:root{
-  --bg: #f5f1e9;
-  --bg-2: #ece5d7;
-  --ink-on-bg: #15110e;
-  --muted-on-bg: #6e645a;
-  --line-on-bg: rgba(21,17,14,0.16);
+   in theme.liquid next to <style id="emoti-color-overrides">).
 
-  --ink: #131110;
-  --ink-2: #1c1815;
-  --ink-3: #24201b;
-  --text: #f4efe6;
-  --muted-on-ink: #a89b8d;
-  --line-on-ink: rgba(244,239,230,0.14);
+   White page (matching the EMOTI Instagram look — neutral, light,
+   editorial), with the sign-up form kept as a dark accent card so it
+   still reads as the page's one bold, unmissable block. --bg/--ink-on-bg
+   ("card" tokens) are intentionally dark; --ink/--text ("page" tokens)
+   are intentionally light — the naming predates this flip, kept as-is to
+   avoid renaming every selector below; see the comment above
+   .final-cta .btn-primary for the one spot that needs a page-light fill
+   even though it sits on the red band, not the dark card. */
+:root{
+  --bg: #15120f;
+  --bg-2: #241d17;
+  --ink-on-bg: #f5f1e9;
+  --muted-on-bg: #b6aa9c;
+  --line-on-bg: rgba(245,241,233,0.16);
+
+  --ink: #faf9f6;
+  --ink-2: #f1ede4;
+  --ink-3: #e7e1d5;
+  --text: #17130f;
+  --muted-on-ink: #746a5e;
+  --line-on-ink: rgba(23,19,15,0.14);
 
   --red: #9c1c1c;
   --red-dark: #7a1515;
-  --red-tint: #c96a6a;
+  --red-tint: #a8241d;
 
   --font-display: 'Anton', 'Arial Narrow', sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
@@ -78,7 +87,7 @@ h1,h2,h3{ text-wrap: balance; }
 
 /* ---- Header ------------------------------------------------------------ */
 .site-header{
-  background: rgba(19,17,16,0.92); backdrop-filter: blur(6px);
+  background: rgba(250,249,246,0.92); backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line-on-ink);
 }
 .site-header.is-sticky{ position: sticky; top: 0; z-index: 100; }
@@ -98,7 +107,9 @@ h1,h2,h3{ text-wrap: balance; }
 .hero-composition{ background: var(--ink); }
 .hero-media{
   position: relative; aspect-ratio: 4 / 5;
-  background: linear-gradient(180deg, #17130f 0%, #0f0d0b 100%);
+  /* Light neutral placeholder — matches the soft studio tones on the
+     real @emotitii Instagram grid, not a dark campaign mockup. */
+  background: linear-gradient(180deg, #f1ede4 0%, #e7e1d5 100%);
   overflow: hidden;
 }
 .hero-media video, .hero-media__image, .hero-media img{
@@ -108,7 +119,7 @@ h1,h2,h3{ text-wrap: balance; }
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 32px;
 }
-.hero-media__placeholder::before{ content: ''; position: absolute; inset: 18px; border: 1px dashed rgba(244,239,230,0.22); }
+.hero-media__placeholder::before{ content: ''; position: absolute; inset: 18px; border: 1px dashed rgba(23,19,15,0.22); }
 .hero-media__placeholder span{ position: relative; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-on-ink); max-width: 22ch; }
 
 .promise{ padding: 36px var(--gutter) 8px; }
@@ -133,8 +144,10 @@ h1,h2,h3{ text-wrap: balance; }
 .field .optional-tag{ font-weight: 400; text-transform: none; color: var(--muted-on-bg); letter-spacing: 0; }
 .field input[type="email"], .field input[type="tel"], .field input[type="number"], .field select{
   width: 100%; font: inherit; font-size: 1rem; padding: 12px 12px;
+  /* Inputs stay white with dark text regardless of the surrounding card's
+     own (now dark) theme — var(--text), not var(--ink-on-bg), on purpose. */
   background: #fff; border: 1px solid var(--line-on-bg); border-radius: 2px;
-  color: var(--ink-on-bg); appearance: none; -webkit-appearance: none;
+  color: var(--text); appearance: none; -webkit-appearance: none;
 }
 .field select{
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2315110e' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -148,10 +161,15 @@ h1,h2,h3{ text-wrap: balance; }
 .size-options input{ position: absolute; opacity: 0; width: 1px; height: 1px; }
 .size-options label{
   display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 40px; padding-inline: 8px;
-  border: 1px solid var(--line-on-bg); color: var(--ink-on-bg); font-size: 0.82rem; font-weight: 600;
+  /* White chip, dark text — same reasoning as the text inputs above. */
+  border: 1px solid var(--line-on-bg); color: var(--text); font-size: 0.82rem; font-weight: 600;
   text-transform: none; letter-spacing: 0; cursor: pointer; background: #fff;
 }
-.size-options input:checked + label{ background: var(--ink-on-bg); color: #fff; border-color: var(--ink-on-bg); }
+/* Red (not dark) fill for the checked state — the size chips live inside
+   the dark sign-up card, so a near-black fill there would barely read
+   against it; red is unambiguous against both the white unchecked chips
+   and the dark card, and stays on-brand. */
+.size-options input:checked + label{ background: var(--red); color: #fff; border-color: var(--red); }
 .size-options input:focus-visible + label{ outline: 2px solid var(--red); outline-offset: 2px; }
 
 .consent-group{ margin: 18px 0 6px; display: grid; gap: 10px; }
@@ -236,7 +254,9 @@ h1,h2,h3{ text-wrap: balance; }
 /* ---- Final CTA ------------------------------------------------------------ */
 .final-cta{ background: var(--red); padding: 40px var(--gutter); display: flex; flex-direction: column; gap: 20px; }
 .final-cta__date{ font-family: var(--font-display); text-transform: uppercase; font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1; color: #fff; margin: 0; }
-.final-cta .btn-primary{ background: var(--bg); color: var(--red-dark); max-width: 320px; }
+/* var(--ink), not var(--bg): this button sits on the solid red band, not
+   the dark card, and needs the page's light fill to read against red. */
+.final-cta .btn-primary{ background: var(--ink); color: var(--red-dark); max-width: 320px; }
 .final-cta .btn-primary:hover{ background: #fff; }
 
 /* ---- Footer ------------------------------------------------------------ */
@@ -258,7 +278,7 @@ h1,h2,h3{ text-wrap: balance; }
   flex: 1 1 auto; padding: 10px 14px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
   border: 1px solid var(--line-on-ink); background: none; color: var(--text); cursor: pointer;
 }
-#cookie-accept{ background: var(--red); border-color: var(--red); }
+#cookie-accept{ background: var(--red); border-color: var(--red); color: #fff; }
 
 /* ---- Thank-you page specifics ------------------------------------------------------------ */
 .ty-hero{ padding: 40px var(--gutter) 8px; }
@@ -274,9 +294,12 @@ h1,h2,h3{ text-wrap: balance; }
 .referral-link-row{ margin-bottom: 14px; }
 .referral-link-row label{ display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
 .referral-link-field{ display: flex; gap: 8px; }
-.referral-link-field input{ flex: 1; min-width: 0; font: inherit; font-size: 0.86rem; padding: 11px 10px; border: 1px solid var(--line-on-bg); background: #fff; color: var(--ink-on-bg); }
-.referral-link-field button{ flex: none; padding: 0 16px; border: 1px solid var(--ink-on-bg); background: var(--ink-on-bg); color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
-.referral-link-field button.is-copied{ background: var(--red); border-color: var(--red); }
+.referral-link-field input{ flex: 1; min-width: 0; font: inherit; font-size: 0.86rem; padding: 11px 10px; border: 1px solid var(--line-on-bg); background: #fff; color: var(--text); }
+/* Light (cream) fill for the default state — this button lives on the
+   dark referral card, so a light chip is what actually pops there. Red
+   marks the "Copied" confirmation, so the state change reads clearly. */
+.referral-link-field button{ flex: none; padding: 0 16px; border: 1px solid var(--ink-on-bg); background: var(--ink-on-bg); color: var(--bg); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+.referral-link-field button.is-copied{ background: var(--red); border-color: var(--red); color: #fff; }
 .referral-share-row{ display: flex; gap: 10px; flex-wrap: wrap; }
 .referral-share-row a, .referral-share-row button{
   flex: 1 1 140px; text-align: center; padding: 11px 12px; border: 1px solid var(--ink-on-bg); background: none; color: var(--ink-on-bg);

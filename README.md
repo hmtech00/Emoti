@@ -318,9 +318,16 @@ note — nothing here pretends to be final:
   Online Store 2.0 settings schema has no "date" type. Every date field
   is a labelled ISO-8601 text field with an inline format example. This
   is the standard, documented workaround real Shopify themes use.
-- **The whole page is dark**, not just the hero — matching your own
-  desktop reference mock, only the sign-up form is a light card floating
-  on the dark page; benefits, collection, FAQ and footer stay dark.
+- **The page is white/light, matching the real @emotitii Instagram** —
+  not the near-black "No Limitations" campaign mock. Checked the live
+  profile: neutral off-white/cream/grey studio tones, soft natural light,
+  no dark backgrounds anywhere on the actual account. The sign-up form
+  stays a **dark** accent card (the inverse of the old light-card-on-dark
+  page), so it's still the one unmissable block on the page — see
+  `config/settings_schema.json` → Colors and the token comment at the top
+  of `assets/emoti.css` for the full rationale. Update Theme settings →
+  Colors if you want to go darker again later; nothing else needs to
+  change.
 - **The product/collection/cart pages are intentionally minimal** — the
   brief is explicit that this theme should use Shopify's own cart/
   checkout rather than a custom build, so `main-product` /
