@@ -11,7 +11,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital@1&display=swap');
 
-/* White page (matching the EMOTI Instagram look — neutral, light,
+/* Color values below are static fallbacks. The real, editable values come
+   from Theme settings → Colors and are injected as a small :root override
+   in layout/theme.liquid (a plain .css file in assets/ isn't parsed as
+   Liquid, so the settings bridge lives there instead — see the comment
+   in theme.liquid next to <style id="emoti-color-overrides">).
+
+   White page (matching the EMOTI Instagram look — neutral, light,
    editorial), with the sign-up form kept as a dark accent card so it
    still reads as the page's one bold, unmissable block. --bg/--ink-on-bg
    ("card" tokens) are intentionally dark; --ink/--text ("page" tokens)
@@ -361,14 +367,18 @@ h1,h2,h3{ text-wrap: balance; }
   .hero-composition{
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(360px, 1fr);
+    grid-template-rows: auto auto;
     align-items: start;
   }
-  .hero-media{ aspect-ratio: auto; height: min(88vh, 720px); min-height: 520px; position: sticky; top: 0; }
+  /* Explicit placement — without this, grid auto-flow drops .signup into
+     column 1 under .hero-media instead of column 2 under .promise, since
+     three items across two auto-placed columns wrap by default. */
+  .hero-media{ grid-column: 1; grid-row: 1 / 3; aspect-ratio: auto; height: min(88vh, 720px); min-height: 520px; position: sticky; top: 0; }
   .site-header.is-sticky ~ main .hero-media{ top: 57px; }
-  .promise{ padding: 32px 40px 0; }
+  .promise{ grid-column: 2; grid-row: 1; padding: 32px 40px 0; }
+  .signup{ grid-column: 2; grid-row: 2; padding: 14px 40px 32px; }
   .promise__heading{ font-size: clamp(2.2rem, 3.6vw, 3rem); margin-bottom: 12px; }
   .promise__sub{ margin-bottom: 18px; font-size: 0.92rem; }
-  .signup{ padding: 14px 40px 32px; }
   .signup-card{ padding: 22px 22px 20px; }
   .signup-card h2{ font-size: 1.4rem; }
   .signup-card__sub{ margin-bottom: 16px; font-size: 0.86rem; }
