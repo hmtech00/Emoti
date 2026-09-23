@@ -6,9 +6,12 @@
     "push": "shopify theme push",
     "push:unpublished": "shopify theme push --unpublished",
     "check": "shopify theme check",
-    "pull": "shopify theme pull"
+    "pull": "shopify theme pull",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "devDependencies": {
-    "@shopify/cli": "^4.8.0"
+    "@shopify/cli": "^4.8.0",
+    "wrangler": "^4.136.3"
   }
 }
