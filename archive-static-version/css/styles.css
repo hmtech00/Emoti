@@ -2,11 +2,11 @@
    EMOTI — Drop 01 · No Limitations
    STATIC PREVIEW COPY. This mirrors assets/emoti.css from the real
    Shopify theme (the parent folder) — kept here only so this static
-   mockup can be deployed somewhere quick to look at (e.g. Cloudflare
-   Pages) without a Shopify store. The Shopify theme is the source of
-   truth: change colors there, then re-copy this file, not the other
-   way around. Mobile-first; the desktop two-column hero composition
-   kicks in at 960px.
+   mockup can be deployed somewhere quick to look at (e.g. Cloudflare)
+   without a Shopify store. The Shopify theme is the source of truth:
+   change colors there, then re-copy this file, not the other way
+   around. Mobile-first; the desktop two-column hero composition kicks
+   in at 960px.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital@1&display=swap');
@@ -118,7 +118,13 @@ h1,h2,h3{ text-wrap: balance; }
   text-align: center; padding: 32px;
 }
 .hero-media__placeholder::before{ content: ''; position: absolute; inset: 18px; border: 1px dashed rgba(23,19,15,0.22); }
-.hero-media__placeholder span{ position: relative; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-on-ink); max-width: 22ch; }
+.hero-media__placeholder span{
+  position: relative; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted-on-ink); max-width: 30ch;
+  /* Balances line lengths so the last word ("AD") doesn't strand itself
+     alone on its own line, especially in the taller desktop hero box. */
+  text-wrap: balance;
+}
 
 .promise{ padding: 36px var(--gutter) 8px; }
 .promise__heading{ font-family: var(--font-display); font-size: clamp(3.2rem, 16vw, 4.6rem); line-height: 0.86; text-transform: uppercase; margin: 12px 0 18px; }
